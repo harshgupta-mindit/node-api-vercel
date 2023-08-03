@@ -8,7 +8,20 @@ app.route("/")
     console.log("Running POST of /products...");
     try{
         const product = await productModel.find({});
-        res.status(200).json(product)
+
+        const response = await product.map((doc)=> {
+            return {
+                id : doc._id,
+                name: doc.name,
+                price: doc.price,
+                request:{
+                    method: "GET",
+                    URL: `http://localhost:3000/products/${doc._id}`
+                }
+            }
+        })
+
+        res.status(200).json(response)
         console.log("Inside Try---GET of /products...");
     }catch(error){
         res.status(500).send(error);

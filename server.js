@@ -9,8 +9,6 @@ const PORT = process.env.PORT || 3000;
 
 
 
-
-
 mongoose.connect("mongodb+srv://harshgupta:nxOkklv3TdiYtWPv@node-rest-shop.pwcnuwr.mongodb.net/gadget-shop-api?retryWrites=true&w=majority")
 .then(()=> {
     console.log("MongoDB connected, Collection : gadget-shop-api");
