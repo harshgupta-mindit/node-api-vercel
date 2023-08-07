@@ -11,7 +11,7 @@ const OrderSchema = mongoose.Schema(
         required: [true, "Quantity field is required"]
        },
        quantity: {
-        type: String,
+        type: Number,
         default: 0
        }
     },
